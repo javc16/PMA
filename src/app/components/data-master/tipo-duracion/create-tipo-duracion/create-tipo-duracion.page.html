@@ -1,0 +1,24 @@
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title> Crear Nuevo Tipo de Duracion</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <form #tipoDuracionForm="ngForm" (ngSubmit)="onSubmit(tipoDuracionForm)">
+        <ion-item lines="full">
+          <ion-label position="floating">Nombre</ion-label>
+          <ion-input name="Nombre" #Nombre="ngModel" type="text" [(ngModel)]="tipoDuracion.nombre" required></ion-input>
+        </ion-item>
+        <ion-item lines="full">
+          <ion-label position="floating">Descripcion</ion-label>
+          <ion-input name="Descripcion" #Nombre="ngModel" type="text" [(ngModel)]="tipoDuracion.descripcion" required></ion-input>
+        </ion-item>
+
+        <ion-button [disabled]="!tipoDuracionForm.valid" class="btn-large btn-submit" type="submit" expand="block">Guardar</ion-button>
+      </form>
+   
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>

@@ -1,0 +1,37 @@
+<ion-tabs slot="top">
+  <ion-toolbar color="toolbarcolor" slot="top">
+    <ion-title> PMA</ion-title>
+    <ion-label slot="end">Salir</ion-label>
+    <ion-fab-button
+      color="medium"
+      slot="end"
+      size="small"
+      *ngIf="readLocalStorageValue('token')"
+      (click)="removeLocalStorageValue('token')"
+    >
+      <ion-icon name="log-out-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-toolbar>
+
+  <ion-tab-bar slot="bottom" color="toolbarcolor">
+    <ion-tab-button tab="home">
+      <ion-icon name="home-outline"></ion-icon>
+      <ion-label>Inicio</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="new-routine">
+      <ion-icon name="alarm-outline"></ion-icon>
+      <ion-label>Nueva Rutina</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="historial">
+      <ion-icon name="folder-open-outline"></ion-icon>
+      <ion-label>Historial</ion-label>
+    </ion-tab-button>
+
+    <ion-tab-button tab="data-master" *ngIf="readAdminRole('userRoles')">
+      <ion-icon name="analytics-outline"></ion-icon>
+      <ion-label>Data Maestra</ion-label>
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-tabs>

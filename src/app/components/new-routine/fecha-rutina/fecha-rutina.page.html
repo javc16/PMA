@@ -1,0 +1,41 @@
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title class="ion-text-center">
+        Ingrese la fecha en la que iniciara el tratamiento
+      </ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      
+        <ion-datetime
+          presentation="date-time"
+          [preferWheel]="true"
+          name="FechaRutina"
+          #FechaRutina="ngModel"
+          [(ngModel)]="rutina.fechaInicio"
+        >
+        </ion-datetime>
+      
+      <ion-row>
+        <ion-col col-6
+          ><ion-button
+            class="btn-large btn-submit"
+            type="submit"
+            expand="block"
+            (click)="navigateToTipoMedicamentoRutina()"
+            >Anterior</ion-button
+          ></ion-col
+        >
+        <ion-col col-6
+          ><ion-button
+            class="btn-large btn-submit"
+            type="submit"
+            expand="block"
+            (click)="navigateTo()"
+            >Siguiente</ion-button
+          ></ion-col
+        >
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

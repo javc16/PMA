@@ -1,0 +1,23 @@
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title> Crear Nueva Presentacion</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <form #tipoMedicamentoForm="ngForm" (ngSubmit)="onSubmit(tipoMedicamentoForm)">
+        <ion-item lines="full">
+          <ion-label position="floating">Nombre</ion-label>
+          <ion-input name="Nombre" #Nombre="ngModel" type="text" [(ngModel)]="tipoMedicamento.nombre" required></ion-input>
+        </ion-item>
+        <ion-item lines="full">
+          <ion-label position="floating">Descripcion</ion-label>
+          <ion-input name="Descripcion" #Descripcion="ngModel" type="text" [(ngModel)]="tipoMedicamento.descripcion" required></ion-input>
+        </ion-item>
+
+        <ion-button [disabled]="!tipoMedicamentoForm.valid" class="btn-large btn-submit" type="submit" expand="block">Guardar</ion-button>
+      </form>
+   
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>

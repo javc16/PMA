@@ -1,0 +1,25 @@
+<ion-content>
+  <ion-button type="button" expand="block" color="tertiary" (click)="navigateToCreateMedicamentos()">
+    Crear Nuevo tipo de Duracion
+  </ion-button>
+  <ion-card *ngFor="let item of tipoDuracion; let i = index">
+    <ion-card-header>
+      <ion-card-title> {{item.nombre}} </ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-grid>
+        <ion-row>
+          <ion-col>{{item.descripcion}}</ion-col>
+          <ion-col sizeLg="2" sizeMd="2" sizeXs="2">
+            <ion-button fill="clear" (click)="updateMedicamento(i)">
+              <ion-icon name="create-outline"></ion-icon> </ion-button
+          ></ion-col>
+          <ion-col sizeLg="2" sizeMd="2" sizeXs="2">
+            <ion-button fill="clear" (click)="deleteMedicamento(i)">
+              <ion-icon name="trash-outline"></ion-icon> </ion-button
+          ></ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

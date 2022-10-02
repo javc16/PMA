@@ -1,0 +1,67 @@
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title class="ion-text-center">
+        Cual sera la dosis de su medicamento:
+      </ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item lines="full">
+        <ion-label position="stacked" class="label-size">Cantidad</ion-label>
+        <ion-input
+          #Cantidad="ngModel"
+          [(ngModel)]="rutina.cantidadPorToma"
+          name="Cantidad"
+          placeholder="Ej. 2"
+          type="number"
+          required
+        ></ion-input>
+      </ion-item>
+
+      <ion-item lines="full">
+        <ion-label position="stacked" class="label-size">Intervalo Cada:</ion-label>
+        <ion-input
+          #Intervalo="ngModel"          
+          name="Intervalo"
+          [(ngModel)]="rutina.intervalo"
+          placeholder="Ej.3"
+          type="number"
+          required
+        ></ion-input>
+      </ion-item>
+
+      <ion-item lines="full">
+        <ion-select
+          interface="action-sheet"
+          placeholder="Ej. Horas"
+          name="TipoIntervaloRutina"
+          #TipoIntervaloRutina="ngModel"
+          [(ngModel)]="rutina.idTipoDeIntervalo"
+        >
+          <ion-select-option
+            expand="block"
+            *ngFor="let item of intervalos"
+            [value]="item.id"
+            >{{ item.nombre }}</ion-select-option
+          >
+        </ion-select>
+      </ion-item>
+      <ion-row>
+        <ion-col col-6
+          ><ion-button
+            class="btn-large btn-submit"
+            type="submit"
+            expand="block"
+            (click)="navigateToTipoMedicamentoRutina()"
+            >Anterior</ion-button
+          ></ion-col
+        >
+        <ion-col col-6
+          ><ion-button class="btn-large btn-submit" type="submit" expand="block" (click)="navigateTo()"
+            >Siguiente</ion-button
+          ></ion-col
+        >
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

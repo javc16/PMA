@@ -1,0 +1,47 @@
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title class="ion-text-center">
+        Seleccione el tipo de presentacion para su medicamento</ion-card-title
+      >
+    </ion-card-header>
+    <ion-card-content>
+      <img src="../../../assets/medicamentos.png" />
+      <ion-item lines="full">
+        <ion-select
+          interface="action-sheet"
+          placeholder="Presentacion Medicamento"
+          name="TipoMedicamentoRutina"
+          #TipoMedicamentoRutina="ngModel"
+          [(ngModel)]="rutina.idTipoDeMedicamento"
+        >
+          <ion-select-option
+            expand="block"
+            *ngFor="let item of tipoMedicamento"
+            [value]="item.id"
+            >{{ item.nombre }}</ion-select-option
+          >
+        </ion-select>
+      </ion-item>
+      <ion-item lines="full">
+        <ion-select
+          interface="action-sheet"
+          placeholder="Medicamentos"
+          name="MedicamentoRutina"
+          #MedicamentoRutina="ngModel"
+          [(ngModel)]="rutina.idMedicamento"
+        >
+          <ion-select-option
+            expand="block"
+            *ngFor="let item of medicamentos"
+            [value]="item.id"
+            >{{ item.nombre }}</ion-select-option
+          >
+        </ion-select>
+      </ion-item>
+      <ion-button class="btn-large btn-submit" type="submit" expand="block" (click)="navigateToMedicamentoRutina()"
+        >Siguiente</ion-button
+      >
+    </ion-card-content>
+  </ion-card>
+</ion-content>

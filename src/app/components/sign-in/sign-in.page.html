@@ -1,0 +1,48 @@
+<ion-content>
+  <div>
+    <ion-card>
+      <ion-card-content>
+        <div *ngIf="isLoginError" class="red-text center error-message">
+          <i class="material-icons">error</i> Incorrect username or password
+        </div>
+        <form
+          #loginForm="ngForm"
+          (ngSubmit)="onSubmit(UserName.value,Password.value)"
+        >
+          <ion-item>
+            <ion-input
+              #UserName
+              ngModel
+              name="UserName"
+              placeholder="Username"
+              required
+            ></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input
+              type="password"
+              #Password
+              ngModel
+              name="Password"
+              placeholder="Password"
+              required
+            ></ion-input>
+          </ion-item>
+
+          <ion-button [disabled]="!loginForm.valid" type="submit" expand="block"
+            >Inciar Sesion</ion-button
+          >
+
+          <ion-button
+            type="button"
+            expand="block"
+            color="tertiary"
+            (click)="navigateToSignUp()"
+          >
+            Registrate!
+          </ion-button>
+        </form>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>

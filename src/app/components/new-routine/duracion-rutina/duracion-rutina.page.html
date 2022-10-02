@@ -1,0 +1,58 @@
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title class="ion-text-center">
+        Cuanto tiempo tomara su medicamento?
+      </ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item lines="full">
+        <ion-input
+          #Cantidad="ngModel"
+          [(ngModel)]="rutina.duracion"
+          name="Duracion"
+          placeholder="Ej. 2"
+          type="number"
+          required
+        ></ion-input>
+      </ion-item>
+
+      <ion-item lines="full">
+        <ion-select
+          interface="action-sheet"
+          placeholder="Ej. Semanas"
+          name="TipoDuracionRutina"
+          #TipoDuracionRutina="ngModel"
+          [(ngModel)]="rutina.idTipoDuracion"
+        >
+          <ion-select-option
+            expand="block"
+            *ngFor="let item of tipoDuracion"
+            [value]="item.id"
+            >{{ item.nombre }}</ion-select-option
+          >
+        </ion-select>
+      </ion-item>
+      <ion-row>
+        <ion-col col-6
+          ><ion-button
+            class="btn-large btn-submit"
+            type="submit"
+            expand="block"
+            (click)="navigateToTipoMedicamentoRutina()"
+            >Anterior</ion-button
+          ></ion-col
+        >
+        <ion-col col-6
+          ><ion-button
+            class="btn-large btn-submit"
+            type="submit"
+            expand="block"
+            (click)="navigateTo()"
+            >Siguiente</ion-button
+          ></ion-col
+        >
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
+</ion-content>

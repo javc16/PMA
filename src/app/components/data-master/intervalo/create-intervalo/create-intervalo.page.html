@@ -1,0 +1,24 @@
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title> Crear Nuevo Intervalo </ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <form #intervaloForm="ngForm" (ngSubmit)="onSubmit(intervaloForm)">
+        <ion-item lines="full">
+          <ion-label position="floating">Nombre</ion-label>
+          <ion-input name="Nombre" #Nombre="ngModel" type="text" [(ngModel)]="intervalo.nombre" required></ion-input>
+        </ion-item>
+        <ion-item lines="full">
+          <ion-label position="floating">Descripcion</ion-label>
+          <ion-input name="Descripcion" #Nombre="ngModel" type="text" [(ngModel)]="intervalo.descripcion" required></ion-input>
+        </ion-item>
+
+        <ion-button [disabled]="!intervaloForm.valid" class="btn-large btn-submit" type="submit" expand="block">Guardar</ion-button>
+      </form>
+   
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>

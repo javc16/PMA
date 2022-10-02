@@ -1,0 +1,44 @@
+<ion-content>
+  <div>
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title class='ion-text-center'>Formulario de Registro</ion-card-title>        
+      </ion-card-header>
+      <ion-card-content>
+        <form #userRegistrationForm="ngForm" (ngSubmit)="onSubmit(userRegistrationForm)">
+          <ion-item>
+            <ion-input name="UserName" #UserName="ngModel" [(ngModel)]="user.userName" placeholder="Username" required></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input type="password" name="Password" #Password="ngModel" [(ngModel)]="user.password" placeholder="Password" required></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input type="email" name="Email" #Email="ngModel" [(ngModel)]="user.email" placeholder="Email" required></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input name="Name" #Name="ngModel" [(ngModel)]="user.name" placeholder="Name" required></ion-input>
+          </ion-item>
+          <div class="row" *ngIf="roles">
+            <ion-item>
+              <ion-select
+              interface="action-sheet"
+              placeholder="roles"
+              
+              >
+              <ion-select-option
+                *ngFor="let item of roles"
+                [value]="item.Id"
+                [checked]="item.selected"  (change)="updateSelectedRoles(i)"
+                >{{ item.Name }}</ion-select-option
+              >
+              </ion-select>
+            </ion-item>
+          </div>
+      
+          <ion-button [disabled]="!userRegistrationForm.valid" class="btn-large btn-submit" type="submit" expand="block">Registrate</ion-button>         
+        </form>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>
+
